@@ -1,9 +1,7 @@
 //author : bhupathi07
 //problem Link : https://atcoder.jp/contests/abc103/tasks/abc103_d
 #include<bits/stdc++.h>
-#include<math.h>
-#include <algorithm>
-#include<vector>
+
 using namespace std;
 
 bool comp(const pair<int,int> &a , const pair<int,int> &b)
@@ -12,11 +10,11 @@ bool comp(const pair<int,int> &a , const pair<int,int> &b)
 }
 int main()
 {
-	int n , m;
+	int n, m;
 	//number of islands and number of requests
 	cin >> n >> m;
 	vector<pair<int,int>> requests;
-	//storing all requests as a pairs in vector of pairs
+	//storing all requests as pairs in a vector of pairs
 	for(int i = 0 ; i < m ; i++)
 	{
 		int a, b;
@@ -28,17 +26,17 @@ int main()
 
 	int ans = 0;
 	int lastbridge = -1;
-	//interating over the reuqests to know that if that
-	//request demands that the bridge need to be added to answer
+	//iterating over the requests to know if that
+	//request demands that the bridge needs to be added to answer
 	for(auto request : requests)
 	{
-		// if the current request  is already handled by previous solution  that we have
-		// the continue by ignoring this request (this is done by using lastbridge )
+		// if the current request  is already handled by a  previous solution  that we have
+		// the continue by ignoring this request (this is done by using LastBridge)
 		if(lastbridge > request.first)
 			continue;
 		else
 		{
-			//rightmost bridge of request which is not handled by our lastbridge
+			//rightmost bridge of the request, which is not handled by our last bridge
 			lastbridge = request.second;
 			ans++;
 		}
